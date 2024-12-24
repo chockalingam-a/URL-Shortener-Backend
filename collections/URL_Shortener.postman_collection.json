@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "9401043b-29d0-4aea-a385-4748c14c48a5",
+		"name": "URL_Shortener",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40623448"
+	},
+	"item": [
+		{
+			"name": "Create Short URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"longURL\": \"https://github.com/chockalingam-a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/shorten",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"shorten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Original URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/:shortId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						":shortId"
+					],
+					"variable": [
+						{
+							"key": "shortId",
+							"value": "KkurpFX"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
