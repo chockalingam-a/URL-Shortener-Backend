@@ -5,6 +5,7 @@ This is a simple backend implementation of a URL Shortener built with Node.js an
 ## Features
 - **Create Short URL**: Convert a long URL into a shortened version.
 - **Fetch Original URL**: Retrieve the original long URL using the short ID.
+- **Rate Limiter**: Ensures that users can make a maximum of 50 requests within a 15-minute window.
 
 ## Temporary Storage
 The data is temporarily stored in an in-memory array:

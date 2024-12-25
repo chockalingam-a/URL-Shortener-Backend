@@ -1,11 +1,19 @@
 import express, { json } from "express";
 import { generateId } from "./utils.js";
+import { rateLimit } from "express-rate-limit";
 import "dotenv/config";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 50,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+})
 
 app.use(json());
+app.use(limiter);
 
 app.get("/", (req, res) => {
     res.send("Welcome to URL Shortener.")
