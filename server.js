@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 8000;
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     limit: 50,
-    standardHeaders: 'draft-8',
-    legacyHeaders: false,
 })
 
 app.use(json());
@@ -21,7 +19,7 @@ app.get("/", (req, res) => {
 
 // temp storage, need to store it on DB
 const urls = [];
-// Schema -> _id, longURL, shortId
+// Url Schema -> _id, longURL, shortId
 
 // create shorten url
 app.post("/shorten", async (req, res) => {
